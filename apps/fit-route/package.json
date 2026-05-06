@@ -1,0 +1,26 @@
+{
+  "name": "fit-route",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "build:image": "cd ../../ && docker build . -f apps/fit-route/Dockerfile -t ${npm_config_registory}/fit-route:${npm_config_tag}",
+    "start": "node dist/index.js",
+    "lint": "eslint --max-warnings 0",
+    "check-types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.19.14",
+    "@hono/zod-validator": "^0.7.6",
+    "hono": "^4.12.16",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^20.11.17",
+    "eslint": "^9",
+    "tsx": "^4.7.1",
+    "typescript": "^5.8.3"
+  }
+}
